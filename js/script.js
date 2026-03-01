@@ -5,7 +5,6 @@
 --------------------------------------------------- */
 const sections = document.querySelectorAll("section");
 
-// Overvåg scroll og aktiver .show-animate på sektioner
 window.onscroll = () => {
   sections.forEach((sec) => {
     const scrollDistance = window.scrollY;
@@ -20,7 +19,7 @@ window.onscroll = () => {
 };
 
 /* -------------------------------------------------
-   2) HOVER-EFFEKT PÅ FØRSTE SEKTION (eksempel)
+   2) HOVER-EFFEKT PÅ FØRSTE SEKTION
 --------------------------------------------------- */
 const sectionOne = document.querySelector(".sec1");
 
@@ -35,33 +34,40 @@ if (sectionOne) {
 }
 
 
-// NYT NYT Vanilla JS
+/* -------------------------------------------------
+   3) VIA BILER – FLIP CARDS MED LYD
+--------------------------------------------------- */
 
-const soundDog = new Audio("../sound/dog.wav");
-const soundHorse = new Audio("../sound/horse.wav");
-const soundBear = new Audio("../sound/bear.wav");
+// ✅ OPGAVE 6: Variabel til lydfilen (stien er fra js/ mappen, så vi går et niveau op med ../)
+const engineSound = new Audio("sound/car-engine-sound.mp3");
 
-const horseCard = document.getElementById("horseCard");
-const bearCard = document.getElementById("bearCard");
-const dogCard = document.getElementById("dogCard");
+// ✅ OPGAVE 7: Variabler til de 3 bil-kort med querySelector() og #id
+const car1 = document.querySelector("#car1");
+const car2 = document.querySelector("#car2");
+const car3 = document.querySelector("#car3");
 
-if (horseCard) {
-   horseCard.addEventListener("click", function() {
-      soundHorse.play();
-      horseCard.classList.toggle("flipped");
-   });
+// ✅ OPGAVE 8: if-tjek → afspil lyd → flip kort
+
+if (car1) {
+  car1.addEventListener("click", function () {
+    engineSound.currentTime = 0; // Start lyden forfra ved hvert klik
+    engineSound.play();
+    car1.classList.toggle("flipped");
+  });
 }
 
-if (bearCard) {
-   bearCard.addEventListener("click", function() {
-      soundBear.play();
-      bearCard.classList.toggle("flipped");
-   });
+if (car2) {
+  car2.addEventListener("click", function () {
+    engineSound.currentTime = 0;
+    engineSound.play();
+    car2.classList.toggle("flipped");
+  });
 }
 
-if (dogCard) {
-   dogCard.addEventListener("click", function() {
-      soundDog.play();
-      dogCard.classList.toggle("flipped");
-   });
+if (car3) {
+  car3.addEventListener("click", function () {
+    engineSound.currentTime = 0;
+    engineSound.play();
+    car3.classList.toggle("flipped");
+  });
 }
